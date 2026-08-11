@@ -19,3 +19,7 @@ If everything run with success, then execute the following
 ```
 docker compose exec app_first composer install
 ```
+
+## Accesing the application(s)
+
+For 'app_first': http://localhost:2000
