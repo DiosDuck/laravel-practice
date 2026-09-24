@@ -18,8 +18,12 @@ If everything run with success, then execute the following
 
 ```
 docker compose exec app_first composer install
+docker compose exec app_first php artisan migrate
+
 docker compose exec app_second composer install
+docker compose exec app_second php artisan migrate
 ```
+
 
 ## Accesing the application(s)
 
