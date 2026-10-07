@@ -54,7 +54,7 @@
                             <td>{{ $customer->email }}</td>
                             <td>{{ $customer->bank_account_number }}</td>
                             <td>
-                                <a href="javascript:;" onclick="submitRestore({{ $customer->id }})" style="color: #2c2c2c;" class="ms-1 me-1"><i class="fas fa-file-export"></i></a>
+                                <a href="javascript:;" onclick="submitRestore({{ $customer->id }})" style="color: #2c2c2c;" class="ms-1 me-1"><i class="fas fa-redo"></i></a>
                                 <form class="form-restore-{{ $customer->id }}" action="{{ route('customers.restore', $customer->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
