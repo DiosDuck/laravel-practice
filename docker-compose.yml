@@ -18,6 +18,13 @@ services:
       timeout: 5s
       retries: 5
 
+  mail:
+    image: axllent/mailpit:v1.28.0
+    container_name: laravel_mailpit
+    ports:
+      - "1027:1025"
+      - "8027:8025"
+
   app_first:
     build: ./docker/basic_laravel
     container_name: laravel_app_first
@@ -29,6 +36,11 @@ services:
       DB_DATABASE: app_first_db
       DB_USERNAME: laravel
       DB_PASSWORD: secret
+      MAIL_MAILER: smtp
+      MAIL_HOST: mail
+      MAIL_PORT: "1025"
+      MAIL_FROM_ADDRESS: "hello@example.com"
+      MAIL_FROM_NAME: "App First"
     ports:
       - "2000:80"
     volumes:
@@ -36,6 +48,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      mail:
+        condition: service_started
 
   app_second:
     build: ./docker/basic_laravel
