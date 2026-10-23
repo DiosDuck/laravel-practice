@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: laravel
       POSTGRES_PASSWORD: secret
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - ./local/postgres_data:/var/lib/postgresql/data
       - ./docker/postgresql/init-app-second-db.sql:/docker-entrypoint-initdb.d/init-app-second-db.sql
